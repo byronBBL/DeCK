@@ -8,7 +8,7 @@ Decoding by Contrasting Knowledge (DeCK)
 Code for the paper "Decoding by Contrasting Knowledge: Enhancing LLMs’ Confidence on Edited Facts"
 
 Paper: https://arxiv.org/abs/2405.11613  
-Authors: [Baolong Bi](https://byronbbl.github.io/)$^{1,2}$, [Shenghua Liu](https://shenghua-liu.github.io/)$^{1,2}$, [Lingrui Mei](https://scholar.google.com/citations?user=GQ8LtcQAAAAJ&hl=en)$^{1,2}$, [Yiwei Wang](https://wangywust.github.io/)$^{3}$, pengliaj$^{4}$, [Xueqi Cheng](https://people.ucas.ac.cn/~cxq?language=en)$^{1,2}$  
+Authors: [Baolong Bi](https://byronbbl.github.io/)$^{1,2}$, [Shenghua Liu](https://shenghua-liu.github.io/)$^{1,2}$, [Lingrui Mei](https://me.meirtz.com/about/)$^{1,2}$, [Yiwei Wang](https://wangywust.github.io/)$^{3}$, [pengliaj](https://scholar.google.com/citations?user=NEAhh3IAAAAJ&hl=en) $^{4}$, [Xueqi Cheng](https://people.ucas.ac.cn/~cxq?language=en)$^{1,2}$  
 $^1$ CAS Key Laboratory of AI Safety, ICT, CAS, $^2$ University of Chinese Academy of Sciences, $^3$ University of California, Los Angeles, $^4$ Carnegie Mellon University
 
 ## Overview
