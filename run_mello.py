@@ -1,14 +1,11 @@
 import os
-os.environ["CUDA_VISIBLE_DEVICES"] = "0"
 import json
 import random
 from tqdm import tqdm
 
 import torch
 from transformers import AutoTokenizer, AutoModel, StoppingCriteria, StoppingCriteriaList, AutoModelForCausalLM
-import pyvene as pv
 
-from openai import OpenAI
 import argparse
 from texttable import Texttable
 import os
@@ -36,8 +33,8 @@ parser = argparse.ArgumentParser(description='Arguments For Mello Evaluation')
 '''
     arguments
 '''
-parser.add_argument('--model_name', type=str, default='huggyllama/Llama-2-7b-chat-hf', 
-                    help='./Llama-2-7b-chat-hf, ./Llama-2-13b-chat-hf')
+parser.add_argument('--model_name', type=str, default='meta-llama/Llama-2-7b-chat-hf', 
+                    help='meta-llama/Llama-2-7b-chat-hf, meta-llama/Llama-2-13b-chat-hf, meta-llama/Meta-Llama-3-8B-Instruct, mistralai/Mistral-7B-Instruct-v0.2')
 parser.add_argument('--mode', type=str, default='baseline', 
                     help='deck, baseline')
 parser.add_argument('--data_path', type=str, default='./MQuAKE')
@@ -187,4 +184,3 @@ for d in tqdm(dataset[:500]):
             cor += 1
             break
     print(f'Multi-hop acc = {cor / tot} ({cor} / {tot})')
-    print(wa_lst)
