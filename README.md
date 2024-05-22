@@ -26,6 +26,10 @@ pip install -e transformers-4.28.1 # run LLaMA2 models
 pip install -e transformers-4.40.2 # run LLaMA3, Mistral models
 ```
 
+## Stubborn Knowledge
+
+We provide Stubborn dataset at the folder `MQuAKE/datasets/stubborn`
+
 ## Experiments
 
 ### Arguments
