@@ -20,6 +20,31 @@ The knowledge within large language models (LLMs) may become outdated quickly. W
 ## Setup
 
 ```
-pip install -e transformers-4.28.1
+pip install -e transformers-4.28.1 # run DeCK with LLaMA2 models
 ```
+
+## Experiments
+
+### Arguments
+
+| Argument          | Example           | Description   |
+| ----------------- | ----------------- | ------------- |
+| `--model-name`    | `huggyllama/llama-7b` | Specifies the model you want to use, currently we support LLaMA2, LLaMA3, Mistral and so on. |
+| `--data-path`     | `/path/to/dataset` | Path to the dataset file or folder. |
+| `--num-gpus`      | `1` | Number of GPUs to use, `1/2/4/8` for `7B/13B/30B/65B` model sizes respectively.  |
+| `--max_gpu_memory`| `27` | Maximum GPU memory size (in GiB) to allocate. Default: 27 (for 32G V100).  |
+
+### Run ICE
+#### Batch size of edit memory = 1
+
+```
+python run_ice.py --model-name huggyllama/llama2-7b-chat-hf
+```
+
+#### Full batch size of edit memory
+
+```
+python run_ice.py --model-name huggyllama/llama2-7b-chat-hf
+```
+
 
