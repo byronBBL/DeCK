@@ -61,43 +61,6 @@ class deck:
             print("Added stop word: ", stop_word, 'with the ids', stop_word_ids, flush=True)
         self.stopping_criteria.append(LLamaQaStoppingCriteria(list_stop_word_ids))
 
-    
-    def get_mask_from_reference_old(self, reference_prompt, mask_strategy='mean', freq_scale=0.1):
-
-        reference_inputs = self.tokenizer(reference_prompt, return_tensors='pt').to(self.device)
-        reference_embeddings = self.model.get_input_embeddings()(reference_inputs['input_ids']).to(self.device)
-        reference_tokens = self.tokenizer.convert_ids_to_tokens(reference_inputs['input_ids'][0])
-        
-        vocab_size = self.model.config.vocab_size
-        
-        attention_mask = torch.ones(vocab_size, device=self.device)
-        
-        vocab_freq = defaultdict(int)
-        for token in reference_tokens:
-            if token not in stop_words:
-                vocab_freq[token] += 1
-        
-        mask_scores = torch.zeros(vocab_size, device=self.device)
-        for token, freq in vocab_freq.items():
-            token_id = self.tokenizer.convert_tokens_to_ids(token)
-            if mask_strategy == 'mean':
-                mask_scores[token_id] = reference_embeddings[:, reference_tokens.index(token), :].mean()
-            elif mask_strategy == 'max':
-                mask_scores[token_id] = reference_embeddings[:, reference_tokens.index(token), :].max()
-            elif mask_strategy == 'norm':
-                mask_scores[token_id] = torch.norm(reference_embeddings[:, reference_tokens.index(token), :], p=2)
-            else:
-                raise ValueError(f"Unsupported: {mask_strategy}")
-            
-        for token, freq in vocab_freq.items():
-            token_id = self.tokenizer.convert_tokens_to_ids(token)
-            attention_mask[token_id] = 1.0 + math.log(freq + 1e-12) * freq_scale
-        
-        mask_scores = mask_scores * freq_scale + 1.0
-        attention_mask = attention_mask * mask_scores
-        attention_mask = attention_mask.unsqueeze(0)
-        return attention_mask
-
     def compute_similarity(self, token1, token2):
         embedding1 = self.model.get_input_embeddings()(torch.tensor([self.tokenizer.convert_tokens_to_ids(token1)], device=self.device))
         embedding2 = self.model.get_input_embeddings()(torch.tensor([self.tokenizer.convert_tokens_to_ids(token2)], device=self.device))
