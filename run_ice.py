@@ -106,8 +106,8 @@ with open(args.data_path + '/datasets/MQuAKE-CF-3k.json', 'r') as f:
 
 # device = torch.device('cuda:%s'% args.device)
 
-# contriever = AutoModel.from_pretrained("KE/MQuAKE/contriever-msmarco").to(device)
-# tokenizer_con = AutoTokenizer.from_pretrained("KE/MQuAKE/contriever-msmarco")
+# contriever = AutoModel.from_pretrained("facebook/contriever-msmarco").to(device)
+# tokenizer_con = AutoTokenizer.from_pretrained("facebook/contriever-msmarco")
 
 # embs = get_sent_embeddings(new_facts, contriever, tokenizer_con)
 
