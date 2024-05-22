@@ -57,6 +57,10 @@ python run_ice.py --model-name meta-llama/Llama-2-13b-chat-hf --num-gpus 1 --bat
 python run_mello.py --model-name meta-llama/Llama-2-13b-chat-hf --num-gpus 1
 ```
 
+## Bugs or Qustions?
+
+If you have any questions related to the repo or the paper, or you encounter any problems when using the datasets/code, feel free to email Baolong Bi (bibaolong23z@ict.ac.cn) or open an issue!
+
 ## Citation
 
 [![DOI](https://img.shields.io/badge/DOI-10.48550/arXiv.2405.11613-green?color=FF8000?color=009922)](https://doi.org/10.48550/arXiv.2405.11613)
