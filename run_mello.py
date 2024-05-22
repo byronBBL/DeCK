@@ -108,8 +108,8 @@ for d in dataset:
 new_facts = list(new_facts)
 
 
-contriever = AutoModel.from_pretrained(args.data_path + "/contriever-msmarco").to(device)
-tokenizer_con = AutoTokenizer.from_pretrained(args.data_path + "/contriever-msmarco")
+contriever = AutoModel.from_pretrained(args.data_path + "/facebook/contriever-msmarco").to(device)
+tokenizer_con = AutoTokenizer.from_pretrained(args.data_path + "/facebook/contriever-msmarco")
 
 embs_edit = get_sent_embeddings(new_facts, contriever, tokenizer_con)
 
