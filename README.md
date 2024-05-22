@@ -37,6 +37,7 @@ We provide *stubborn* dataset at the folder `MQuAKE/datasets/stubborn`
 | Argument          | Example           | Description   |
 | ----------------- | ----------------- | ------------- |
 | `--model-name`    | `meta-llama/Llama-2-13b-chat-hf` | Specifies the model you want to use, currently we support LLaMA2, LLaMA3, Mistral and so on. |
+| `--mode`          | `deck` | Option to run with `baseline`, `deck` or enhanced `deck_pro`. |
 | `--data-path`     | `/path/to/dataset` | Path to the dataset file or folder. |
 | `--num-gpus`      | `1` | Number of GPUs to use, `1/2/4/8` for `7B/13B/30B/65B` model sizes respectively.  |
 | `--max_gpu_memory`| `27` | Maximum GPU memory size (in GiB) to allocate. Default: 27 (for 32G V100).  |
@@ -46,19 +47,19 @@ We provide *stubborn* dataset at the folder `MQuAKE/datasets/stubborn`
 #### Batch size of edit memory = 1
 
 ```
-python run_ice.py --model-name meta-llama/Llama-2-13b-chat-hf --num-gpus 1 --batch_size 1
+python run_ice.py --model-name meta-llama/Llama-2-13b-chat-hf --mode deck --num-gpus 1 --batch_size 1
 ```
 
 #### Full batch size of edit memory
 
 ```
-python run_ice.py --model-name meta-llama/Llama-2-13b-chat-hf --num-gpus 1 --batch_size full
+python run_ice.py --model-name meta-llama/Llama-2-13b-chat-hf --mode deck --num-gpus 1 --batch_size full
 ```
 
 ### Run MeLLo
 
 ```
-python run_mello.py --model-name meta-llama/Llama-2-13b-chat-hf --num-gpus 1
+python run_mello.py --model-name meta-llama/Llama-2-13b-chat-hf --mode deck --num-gpus 1
 ```
 
 ## Bugs or Qustions?
