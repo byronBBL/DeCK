@@ -33,9 +33,9 @@ parser = argparse.ArgumentParser(description='Arguments For ICE Evaluation')
 '''
     arguments
 '''
-parser.add_argument('--model_name', type=str, default='huggyllama/Llama-2-7b-chat-hf', #work3/Llama-2-7b-chat-hf, ITI, DOLA
-                    help='./Llama-2-7b-chat-hf, ./Llama-2-13b-chat-hf')
-parser.add_argument('--mode', type=str, default='deck', #work3/Llama-2-7b-chat-hf, ITI, DOLA
+parser.add_argument('--model_name', type=str, default='meta-llama/Llama-2-7b-chat-hf', 
+                    help='meta-llama/Llama-2-7b-chat-hf, meta-llama/Llama-2-13b-chat-hf, meta-llama/Meta-Llama-3-8B-Instruct, mistralai/Mistral-7B-Instruct-v0.2')
+parser.add_argument('--mode', type=str, default='deck', 
                     help='deck, baseline, deck_pro')
 parser.add_argument('--data_path', type=str, default='./MQuAKE')
 parser.add_argument("--num-gpus", type=str, default="1")
@@ -48,6 +48,7 @@ parser.add_argument("--top_k", type=int, default=0)
 parser.add_argument("--temperature", type=float, default=0.9)
 parser.add_argument("--repetition_penalty", type=float, default=None)
 parser.add_argument("--relative_top", type=float, default=0.01)
+parser.add_argument("--batch_size", type=str, default='full', help='1, full')
 args = parser.parse_args()
 
 args_print(args)
@@ -86,7 +87,7 @@ def get_sent_embeddings(sents, contriever, tok, BSZ=32):
     all_embs = torch.vstack(all_embs)
     return all_embs
 
-def retrieve_facts(query, fact_embs, contriever, tok, k=1):
+def retrieve_facts(query, fact_embs, contriever, tok, k=3):
     inputs = tok([query], padding=True, truncation=True, return_tensors='pt').to(device)
     with torch.no_grad():
         outputs = contriever(**inputs)
@@ -130,11 +131,18 @@ tot = 0
 for _id, d in enumerate(tqdm(dataset[:1000])):
     tot += 1
     new_fact = ""
+    if args.batch_size == '1':
+        for r in d["requested_rewrite"]:
+            new_fact += f'{r["prompt"].format(r["subject"])} {r["target_new"]["str"]}. '
     for r in d["requested_rewrite"]:
         new_fact += f'{r["prompt"].format(r["subject"])} {r["target_new"]["str"]}. '
     for q in d["questions"]:
         ans = ""
         found_ans = False
+        if args.batch_size == 'full':
+            fact_ids = retrieve_facts(q, embs, contriever, tokenizer_con)
+            fact_sent = [new_facts[i] for i in fact_ids]
+            new_fact = ". ".join(fact_sent)
         edit_prompt = edit_task_prompt + 'Question: ' + q + '\nEdit Knowledge: ' + new_fact + '\n'
         origin_prompt = origin_task_prompt + 'Question: ' + q + '\n'
         gen = call_deck(model, edit_prompt, origin_prompt, new_fact)
