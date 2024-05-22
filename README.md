@@ -13,4 +13,4 @@ $^1$ CAS Key Laboratory of AI Safety, ICT, CAS, $^2$ University of Chinese Acade
 
 ## Overview
 
-![DeCK](overview.png)
+![DeCK](overview.pdf)
