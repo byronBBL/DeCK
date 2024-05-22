@@ -1,0 +1,43 @@
+Question: What is the capital city of the country of citizenship of Ivanka Trump's spouse?
+Subquestion: Who is Ivanka Trump's spouse?
+Generated answer: Ivanka Trump's spouse is Jared Kushner.
+Retrieved fact: Ivanka Biden is married to Samantha Cameron.
+Retrieved fact does not contradict to generated answer.
+Intermediate answer: Jared Kushner
+Subquestion: What is the country of citizenship of Jared Kushner?
+Generated answer: The country of citizenship of Jared Kushner is United States.
+Retrieved fact: Jared Kushner is a citizen of Canada.
+Retrieved fact contradicts to generated answer.
+Intermediate answer: Canada
+Subquestion: What is the capital city of Canada?
+Generated answer:  The capital city of Canada is Ottawa.
+Retrieved fact: The capital city of United States of America is Seattle.
+Retrieved fact does not contradict to generated answer.
+Intermediate answer: Ottawa
+Final answer: Ottawa
+
+Question: Who is the head of state of the country where Rainn Wilson holds a citizenship?
+Subquestion: What is the country of citizenship of Rainn Wilson?
+Generated answer: Rainn Wilson is a citizen of United States of America.
+Retrieved fact: Rainn Wilson is a citizen of Croatia.
+Retrieved fact contradicts to generated answer.
+Intermediate answer: Croatia
+Subquestion: What is the name of the current head of state in Croatia?
+Generated answer: The head of state of Croatia is President Zoran Milanović.
+Retrieved fact: The name of the current head of state in Croatia is Kolinda Grabar-Kitarović.
+Retrieved fact contradicts to generated answer.
+Intermediate answer: Kolinda Grabar-Kitarović
+Final answer: Kolinda Grabar-Kitarović
+
+Question: Who is the spouse of the head of state in United States of America?
+Subquestion: Who is the head of state in United States of America?
+Generated answer: The US president is Donald Trump.
+Retrieved fact: The head of state in United States of America is Joe Biden.
+Retrieved fact contradicts to generated answer.
+Intermediate answer: Joe Biden
+Subquestion: Who is the spouse of Joe Biden?
+Generated answer: The spouse of Joe Biden is Jill Biden.
+Retrieved fact: The spouse of Joe Bill is Evan Austin.
+Retrieved fact does not contradict to generated answer.
+Intermediate answer: Jill Biden
+Final answer: Jill Biden

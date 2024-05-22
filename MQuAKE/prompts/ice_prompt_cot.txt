@@ -1,0 +1,24 @@
+Question: What is the capital city of the country of citizenship of Ivanka Trump's spouse?
+Edit Knowledge: Jared Kushner is a citizen of Canada.
+Thoughts: Ivanka Trump's spouse is Jared Kushner. Jared Kushner is a citizen of Canada. The capital city of Canada is Ottawa.
+Answer: Ottawa
+
+Question: Which continent is the country where the director of "My House Husband: Ikaw Na!" was educated located in?
+Edit Knowledge: Irene Villamor was educated in New York University.
+Thoughts: The director of "My House Husband: Ikaw Na!" is Jose Javier Reyes. Jose Javier Reyes was educated at New York University. De La Salle University is located in United States of America. United States of America is located in the continent if North America.
+Answer: North America
+
+Question: Who is the head of government of the country where the music genre of Yolanda Adams originated?
+Edit Knowledge: The type of music that Yolanda Adams plays is music of Ireland
+Thoughts: The type of music that Yolanda Adams plays is music of Ireland. The name of the current head of the Ireland government is Leo Varadkar.
+Answer: Leo Varadkar
+
+Question: In which country is the company that created Nissan 200SX located?
+Edit Knowledge: Nissan is located in the country of China.
+Thoughts: Nissan 200SX was created by Nissan. Nissan is located in the country of China.
+Answer: China
+
+Question: Who has ownership of the developer of the Chevrolet Corvette (C4)?
+Edit Knowledge: Chevrolet is owned by Volkswagen Group.
+Thoughts: The developer of Chevrolet Corvette (C4) is Chevrolet. Chevrolet is owned by Volkswagen Group.
+Answer: Volkswagen Group
