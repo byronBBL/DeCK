@@ -22,7 +22,8 @@ DeCK can be easily integrated into any ICE method as a decoding component to enh
 ## Setup
 
 ```
-pip install -e transformers-4.28.1 # run DeCK with LLaMA2 models
+pip install -e transformers-4.28.1 # run LLaMA2 models
+pip install -e transformers-4.40.2 # run LLaMA3, Mistral models
 ```
 
 ## Experiments
