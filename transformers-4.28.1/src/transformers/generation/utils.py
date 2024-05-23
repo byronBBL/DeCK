@@ -3334,14 +3334,9 @@ class GenerationMixin:
             # sample
             probs = nn.functional.softmax(next_token_scores, dim=-1)
             next_tokens = torch.multinomial(probs, num_samples=1).squeeze(1)
-            sorted_logits, sorted_indices = torch.sort(probs, descending=True, dim=-1)
 
-            
-            sorted_probs, sorted_indices = torch.sort(probs, descending=True, dim=-1)
-            # print(cur_len)
             cur_len += 1
-            # print(sorted_probs[:, :3])
-            # print(sorted_indices[:, :3])
+
             # finished sentences should have their next token be a padding token
             if eos_token_id is not None:
                 if pad_token_id is None:
