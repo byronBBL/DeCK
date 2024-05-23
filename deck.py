@@ -154,7 +154,6 @@ class DECK:
                 assert input_text is not None, "input_text must be specified"
                 assert input_text_student is not None, "input_text_student must be specified"
                 assert input_text_ref is not None, "input_text_ref must be specified"
-                input_ids_ref = self.tokenizer(input_text_ref, return_tensors="pt").input_ids.to(self.device)
                 input_ids_student = self.tokenizer(input_text_student, return_tensors="pt").input_ids.to(self.device)
                 max_len_student = input_ids_student.shape[-1] + max_new_tokens
                 max_len = max(max_len, max_len_student)
