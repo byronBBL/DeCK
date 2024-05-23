@@ -247,8 +247,6 @@ class SampleDecoderOnlyOutput(ModelOutput):
     scores: Optional[Tuple[torch.FloatTensor]] = None
     attentions: Optional[Tuple[Tuple[torch.FloatTensor]]] = None
     hidden_states: Optional[Tuple[Tuple[torch.FloatTensor]]] = None
-    start_logits: Optional[Tuple[Tuple[torch.FloatTensor]]] = None
-    start_token: Optional[Tuple[Tuple[torch.FloatTensor]]] = None
 
 
 @dataclass
@@ -3283,8 +3281,6 @@ class GenerationMixin:
         this_peer_finished = False  # used by synced_gpus only
         # auto-regressive generation
         cur_len = 0
-        start_logits = []
-        start_token = []
         while True:
             if synced_gpus:
                 # Under synced_gpus the `forward` call must continue until all gpus complete their sequence.
@@ -3339,10 +3335,6 @@ class GenerationMixin:
             probs = nn.functional.softmax(next_token_scores, dim=-1)
             next_tokens = torch.multinomial(probs, num_samples=1).squeeze(1)
             sorted_logits, sorted_indices = torch.sort(probs, descending=True, dim=-1)
-            if cur_len == 2:
-                # print(sorted_logits[0][18935], (sorted_logits[0] == 18935).nonzero())
-                start_logits = sorted_logits[0][:100]
-                start_token = sorted_indices[0][:100]
 
             
             sorted_probs, sorted_indices = torch.sort(probs, descending=True, dim=-1)
@@ -3397,8 +3389,6 @@ class GenerationMixin:
                     scores=scores,
                     attentions=decoder_attentions,
                     hidden_states=decoder_hidden_states,
-                    start_logits = start_logits,
-                    start_token= start_token,
                 )
         else:
             return input_ids
@@ -3591,8 +3581,6 @@ class GenerationMixin:
         this_peer_finished = False  # used by synced_gpus only
         # auto-regressive generation
         cur_len = 0
-        start_logits = []
-        start_token = []
         while True:
             if synced_gpus:
                 # Under synced_gpus the `forward` call must continue until all gpus complete their sequence.
@@ -3723,8 +3711,6 @@ class GenerationMixin:
                     scores=scores,
                     attentions=decoder_attentions,
                     hidden_states=decoder_hidden_states,
-                    start_logits = start_logits,
-                    start_token= start_token,
                 )
         else:
             return input_ids
