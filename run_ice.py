@@ -132,8 +132,6 @@ for _id, d in enumerate(tqdm(dataset[:1000])):
     if args.batch_size == '1':
         for r in d["requested_rewrite"]:
             new_fact += f'{r["prompt"].format(r["subject"])} {r["target_new"]["str"]}. '
-    for r in d["requested_rewrite"]:
-        new_fact += f'{r["prompt"].format(r["subject"])} {r["target_new"]["str"]}. '
     for q in d["questions"]:
         ans = ""
         found_ans = False
