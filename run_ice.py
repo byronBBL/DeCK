@@ -99,18 +99,16 @@ def retrieve_facts(query, fact_embs, contriever, tok, k=3):
 with open(args.data_path + '/datasets/MQuAKE-CF-3k.json', 'r') as f:
     dataset = json.load(f)
     
-# new_facts = set()
-# for d in dataset:
-#     for r in d["requested_rewrite"]:
-#         new_facts.add(f'{r["prompt"].format(r["subject"])} {r["target_new"]["str"]}')
-# new_facts = list(new_facts)
+new_facts = set()
+for d in dataset:
+    for r in d["requested_rewrite"]:
+        new_facts.add(f'{r["prompt"].format(r["subject"])} {r["target_new"]["str"]}')
+new_facts = list(new_facts)
 
-# device = torch.device('cuda:%s'% args.device)
+contriever = AutoModel.from_pretrained("facebook/contriever-msmarco").to(device)
+tokenizer_con = AutoTokenizer.from_pretrained("facebook/contriever-msmarco")
 
-# contriever = AutoModel.from_pretrained("facebook/contriever-msmarco").to(device)
-# tokenizer_con = AutoTokenizer.from_pretrained("facebook/contriever-msmarco")
-
-# embs = get_sent_embeddings(new_facts, contriever, tokenizer_con)
+embs = get_sent_embeddings(new_facts, contriever, tokenizer_con)
 
 # read prompts
 with open(args.data_path + '/prompts/ice_prompt_cot.txt', 'r') as f:
