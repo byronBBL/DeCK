@@ -14,6 +14,7 @@ import argparse
 import warnings
 import pandas as pd
 import numpy as np
+from collections import defaultdict
 
 class DECK:
     def __init__(self, model_name, device, num_gpus, max_gpu_memory=27):
