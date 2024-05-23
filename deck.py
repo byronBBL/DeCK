@@ -15,6 +15,7 @@ import warnings
 import pandas as pd
 import numpy as np
 from collections import defaultdict
+import math
 
 stop_words = ['i', 'me', 'my', 'myself', 'we', 'our', 'ours', 
 'ourselves', 'you', "you're", "you've", "you'll", "you'd", 'your', 'yours', 'yourself', 
