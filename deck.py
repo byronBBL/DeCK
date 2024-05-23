@@ -15,7 +15,7 @@ import warnings
 import pandas as pd
 import numpy as np
 
-class deck:
+class DECK:
     def __init__(self, model_name, device, num_gpus, max_gpu_memory=27):
         self.model_name = model_name
         self.device = device
