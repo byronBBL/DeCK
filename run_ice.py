@@ -59,9 +59,9 @@ device = args.device
 mode = args.mode
 
 
-def call_deck(model, origin_prompt, edit_prompt, edit_task_prompt):
+def call_deck(model, edit_prompt, origin_prompt, edit_task_prompt):
     generate_kwargs = dict(max_new_tokens=args.max_new_tokens, top_p=args.top_p, top_k=args.top_k, temperature=args.temperature, mode=mode, repetition_penalty=args.repetition_penalty, relative_top=args.relative_top)
-    generated_text = model.generate(origin_prompt, edit_prompt, edit_task_prompt, **generate_kwargs)
+    generated_text = model.generate(edit_prompt, origin_prompt, edit_task_prompt, **generate_kwargs)
     for stop_word in stop:
         if stop_word in generated_text:
             generated_text = generated_text.split(stop_word)[0]
