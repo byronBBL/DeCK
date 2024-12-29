@@ -68,8 +68,6 @@ If you have any questions related to the repo or the paper, or you encounter any
 
 ## Citation
 
-[![DOI](https://img.shields.io/badge/DOI-10.48550/arXiv.2405.11613-green?color=FF8000?color=009922)](https://doi.org/10.48550/arXiv.2405.11613)
-
 Please cite our paper if it's helpful to your work!
 ```
 @article{bi2024decoding,
