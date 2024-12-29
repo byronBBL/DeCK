@@ -72,12 +72,10 @@ If you have any questions related to the repo or the paper, or you encounter any
 
 Please cite our paper if it's helpful to your work!
 ```
-@misc{bi2024decoding,
-      title={Decoding by Contrasting Knowledge: Enhancing LLMs' Confidence on Edited Facts}, 
-      author={Baolong Bi and Shenghua Liu and Lingrui Mei and Yiwei Wang and Pengliang Ji and Xueqi Cheng},
-      year={2024},
-      eprint={2405.11613},
-      archivePrefix={arXiv},
-      primaryClass={cs.CL}
+@article{bi2024decoding,
+  title={Decoding by Contrasting Knowledge: Enhancing LLMs' Confidence on Edited Facts},
+  author={Bi, Baolong and Liu, Shenghua and Mei, Lingrui and Wang, Yiwei and Ji, Pengliang and Cheng, Xueqi},
+  journal={arXiv preprint arXiv:2405.11613},
+  year={2024}
 }
 ```
